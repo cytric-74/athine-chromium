@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -7,7 +8,13 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --bg: #0d0d0d;
@@ -24,7 +31,8 @@
       --amber: #ffcc44;
     }
 
-    html, body {
+    html,
+    body {
       width: 360px;
       background: var(--bg);
       color: var(--text);
@@ -48,7 +56,11 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .header-left { display: flex; align-items: baseline; gap: 6px; }
+    .header-left {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
 
     .logo {
       font-family: 'Syne', sans-serif;
@@ -64,7 +76,11 @@
       text-transform: uppercase;
     }
 
-    .header-right { display: flex; align-items: center; gap: 6px; }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
     .mute-all-btn {
       background: var(--tag-bg);
@@ -79,13 +95,30 @@
       transition: all 0.15s;
       text-transform: uppercase;
     }
-    .mute-all-btn:hover { border-color: #444; color: var(--text); }
 
-    .dots { display: flex; gap: 3px; align-items: center; }
-    .dots span { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+    .mute-all-btn:hover {
+      border-color: #444;
+      color: var(--text);
+    }
+
+    .dots {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+
+    .dots span {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
 
     /* ── Summary ── */
-    .summary { display: flex; gap: 6px; }
+    .summary {
+      display: flex;
+      gap: 6px;
+    }
 
     .summary-pill {
       background: var(--tag-bg);
@@ -95,7 +128,11 @@
       font-size: 9px;
       color: var(--muted);
     }
-    .summary-pill.active { border-color: var(--green); color: var(--green); }
+
+    .summary-pill.active {
+      border-color: var(--green);
+      color: var(--green);
+    }
 
     /* ── Tab list ── */
     .tab-list {
@@ -116,8 +153,14 @@
       padding: 6px 9px 7px;
       transition: border-color 0.15s;
     }
-    .tab-card:hover { border-color: #383838; }
-    .tab-card.is-active-tab { border-left: 2px solid #444; }
+
+    .tab-card:hover {
+      border-color: #383838;
+    }
+
+    .tab-card.is-active-tab {
+      border-left: 2px solid #444;
+    }
 
     /* ── Top row: favicon + domain + title + vol% + mute ── */
     .tab-top {
@@ -128,8 +171,8 @@
     }
 
     .favicon {
-      width: 11px;
-      height: 11px;
+      width: 13px;
+      height: 13px;
       border-radius: 2px;
       object-fit: contain;
       flex-shrink: 0;
@@ -186,8 +229,14 @@
       transition: color 0.15s;
       line-height: 1;
     }
-    .mute-btn:hover { color: var(--amber); }
-    .mute-btn.is-muted { color: var(--amber); }
+
+    .mute-btn:hover {
+      color: var(--amber);
+    }
+
+    .mute-btn.is-muted {
+      color: var(--amber);
+    }
 
     /* ── Bottom row: − bar + ── */
     .tab-controls {
@@ -213,8 +262,16 @@
       transition: all 0.12s;
       user-select: none;
     }
-    .vol-btn:hover { border-color: #555; color: var(--text); background: #222; }
-    .vol-btn:active { transform: scale(0.9); }
+
+    .vol-btn:hover {
+      border-color: #555;
+      color: var(--text);
+      background: #222;
+    }
+
+    .vol-btn:active {
+      transform: scale(0.9);
+    }
 
     .bar-track {
       flex: 1;
@@ -241,14 +298,24 @@
     .bar-fill::after {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 35%;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
     }
 
-    .bar-track:hover .bar-fill { background: #eaeaea; }
-    .tab-card.is-muted .bar-fill { background: #3a3a3a; }
-    .tab-card.is-muted .vol-label { color: var(--amber); }
+    .bar-track:hover .bar-fill {
+      background: #eaeaea;
+    }
+
+    .tab-card.is-muted .bar-fill {
+      background: #3a3a3a;
+    }
+
+    .tab-card.is-muted .vol-label {
+      color: var(--amber);
+    }
 
     /* ── Empty / loading ── */
     .empty {
@@ -257,6 +324,7 @@
       font-size: 10px;
       padding: 28px 0;
     }
+
     .loading {
       text-align: center;
       color: var(--muted);
@@ -267,30 +335,32 @@
     }
   </style>
 </head>
+
 <body>
-<div class="shell">
+  <div class="shell">
 
-  <div class="header">
-    <div class="header-left">
-      <span class="logo">Athine</span>
-      <span class="logo-sub">control vol</span>
+    <div class="header">
+      <div class="header-left">
+        <span class="logo">Athine</span>
+        <span class="logo-sub">control vol</span>
+      </div>
+      <div class="header-right">
+        <button class="mute-all-btn" id="muteAllBtn">mute all</button>
+        <div class="dots"><span></span><span></span><span></span></div>
+      </div>
     </div>
-    <div class="header-right">
-      <button class="mute-all-btn" id="muteAllBtn">mute all</button>
-      <div class="dots"><span></span><span></span><span></span></div>
+
+    <div class="summary">
+      <div class="summary-pill" id="tabCountPill">— tabs</div>
+      <div class="summary-pill active" id="playingPill" style="display:none">● playing</div>
     </div>
-  </div>
 
-  <div class="summary">
-    <div class="summary-pill" id="tabCountPill">— tabs</div>
-    <div class="summary-pill active" id="playingPill" style="display:none">● playing</div>
-  </div>
+    <div class="tab-list" id="tabList">
+      <div class="loading">scanning tabs…</div>
+    </div>
 
-  <div class="tab-list" id="tabList">
-    <div class="loading">scanning tabs…</div>
   </div>
-
-</div>
-<script src="popup.js"></script>
+  <script src="popup.js"></script>
 </body>
+
 </html>
