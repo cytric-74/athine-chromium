@@ -17,7 +17,8 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 
   if (message.type === "GET_TAB_VOLUME") {
-    sendResponse({ volume: tabVolumes[message.tabId] ?? 1.0 });
+    const tabId = sender?.tab?.id;
+    sendResponse({ volume: tabVolumes[tabId] ?? 1.0 });
   }
 
   return true;
