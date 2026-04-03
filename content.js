@@ -17,12 +17,10 @@ function applyVolume(volume) {
   window._currentVolume = volume;
 }
 
-// Listen for volume messages from background
 _b.runtime.onMessage.addListener((message) => {
   if (message.type === "SET_VOLUME") applyVolume(message.volume);
 });
 
-// On load, ask background for this tab's stored volume
 _b.runtime.sendMessage({ type: "GET_TAB_VOLUME" })
   .then?.((response) => { if (response?.volume !== undefined) applyVolume(response.volume); })
   .catch?.(() => {});
