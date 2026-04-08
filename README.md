@@ -1,10 +1,7 @@
 <div align="center">
 
 <br />
-
-<!-- Replace with your own gif -->
 ![athine demo](media/chromium.gif)
-
 <br />
 
 # athine
@@ -18,7 +15,7 @@
 ## Overview
 
 For controling the audio volume of each browser tab independently.
-For firefox user ![here](https://github.com/cytric-74/athine)
+For firefox user ![here](https://addons.mozilla.org/en-US/firefox/addon/athine/)
 
 *no datas are collected*
 
